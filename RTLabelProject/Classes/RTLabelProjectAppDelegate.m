@@ -40,18 +40,19 @@
 
 @implementation RTLabelProjectAppDelegate
 
-@synthesize window;
-
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
 	DemoTableViewController *demoTableViewController = [[DemoTableViewController alloc] initWithStyle:UITableViewStylePlain];
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:demoTableViewController];
-	[window setRootViewController:navController];
+	[self.window setRootViewController:navController];
 	
     
 	

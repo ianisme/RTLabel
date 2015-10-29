@@ -53,19 +53,19 @@
         
 		UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,150,30)];
 		[titleLabel setBackgroundColor:[UIColor clearColor]];
-		[titleLabel setTextColor:[UIColor whiteColor]];
+		[titleLabel setTextColor:[UIColor blueColor]];
 		[titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20]];
 		[titleLabel setText:@"RTLabel"];
 		[self.navigationItem setTitleView:titleLabel];
-		[titleLabel setTextAlignment:UITextAlignmentCenter];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
 		
 		_dataArray = [NSMutableArray array];
 		NSMutableDictionary *row1 = [NSMutableDictionary dictionary];
-		[row1 setObject:@"<b>bold</b> and <i>italic</i> style" forKey:@"text"];
+		[row1 setObject:@"<b>bold（粗体）</b> and <i>italic（斜体）</i> style" forKey:@"text"];
 		[self.dataArray addObject:row1];
 		
 		NSMutableDictionary *row2 = [NSMutableDictionary dictionary];
-		[row2 setObject:@"<font face='HelveticaNeue-CondensedBold' size=20><u color=blue>underlined</u> <uu color=red>text</uu></font>" forKey:@"text"];
+		[row2 setObject:@"<font face='HelveticaNeue-CondensedBold' size=20><u color=blue>underlined（下划线）</u> <uu color=red>text</uu></font>" forKey:@"text"];
 		[self.dataArray addObject:row2];
 		
 		NSMutableDictionary *row3 = [NSMutableDictionary dictionary];
@@ -114,10 +114,10 @@
 	else 
 	{
 		RTLabel *rtLabel = [DemoTableViewCell textLabel];
-        rtLabel.lineSpacing = 20.0;
+//        rtLabel.lineSpacing = 20.0;
 		[rtLabel setText:[rowInfo objectForKey:@"text"]];
 		CGSize optimumSize = [rtLabel optimumSize];
-		[rowInfo setObject:[NSNumber numberWithFloat:optimumSize.height+20] forKey:@"cell_height"];
+		[rowInfo setObject:[NSNumber numberWithFloat:optimumSize.height] forKey:@"cell_height"];
 		return [[rowInfo objectForKey:@"cell_height"] floatValue];
 	}
 
@@ -142,7 +142,7 @@
         [cell.rtLabel setDelegate:self];
     }
 	[cell.rtLabel setText:[[self.dataArray objectAtIndex:indexPath.row] objectForKey:@"text"]];
-    cell.rtLabel.lineSpacing = 20.0;
+//    cell.rtLabel.lineSpacing = 20.0;
     return cell;
 }
 

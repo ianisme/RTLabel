@@ -36,11 +36,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RTLabelProjectAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
-}
+@interface RTLabelProjectAppDelegate : NSObject <UIApplicationDelegate>
 
-@property (nonatomic) IBOutlet UIWindow *window;
+@property (strong, nonatomic) UIWindow *window;
 
 @end
 

@@ -38,7 +38,7 @@
 
 + (RTLabel*)textLabel
 {
-	RTLabel *label = [[RTLabel alloc] initWithFrame:CGRectMake(10,10,300,100)];
+	RTLabel *label = [[RTLabel alloc] initWithFrame:CGRectMake(10,0,300,100)];
 	//[label setFont:[UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20]];
     [label setParagraphReplacement:@""];
 	return label;
